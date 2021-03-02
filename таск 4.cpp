@@ -108,16 +108,18 @@ void delete_given(spisok* previous, spisok* next_el)
 
 int individual(int given, spisok* head)
 {
-	int k = 1;
-	spisok* tmp1;
-	tmp1 = head->next;
+	int k = 0;
+	spisok* tmp;
+	tmp = head->next;
 
-	while (tmp1->next != NULL)
+	while (tmp->next != NULL)
 	{
-		if (given == tmp1->value)
+		if (given == tmp->value)
 			k = k + 1;
-		tmp1 = tmp1->next;
+		tmp = tmp->next;
 	}
+	if (tmp->next == NULL && given == tmp->value)
+		k = k + 1;
 	return (k);
 }
 
